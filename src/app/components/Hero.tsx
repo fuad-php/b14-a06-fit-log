@@ -11,7 +11,7 @@ const Hero = () => {
                     <span className='text-[#CCFF00] uppercase font-bold text-xl'>Workout Library</span>
                     <h2 className='text-5xl font-bold uppercase text-white'>Train with intent. Log every set.</h2>
                     <p className='text-gray-400'>{"FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today's plan, and watch the week's work add up."}</p>
-                    <Link href="">                    
+                    <Link href="#library">                    
                         <button className='btn bg-[#CCFF00] text-black font-bold rounded border-transparent'>Browse Workouts</button>
                     </Link>
                 </div>

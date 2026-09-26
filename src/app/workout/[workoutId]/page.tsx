@@ -1,13 +1,17 @@
-import React from 'react';
 import Image from 'next/image';
 import { LuNotebookPen } from 'react-icons/lu';
 import { TbBadge } from 'react-icons/tb';
-
-const WorkoutDetailPage = async ({params}) => {
+import { IWorkoutType } from '@/app/types/WorkoutType';
+interface IWorkoutDetailPageProps{
+    params : Promise <{
+        workoutId : string
+    }>;
+}
+const WorkoutDetailPage = async ({params}:IWorkoutDetailPageProps) => {
     const { workoutId } = await params;
     const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${parseInt(workoutId)}`);
-    const workout = await res.json();
-    const { id,name,image,muscleGroups,equipment,difficulty,duration,caloriesBurned,sets,reps,rating,description,instructions } = workout;
+    const workout:IWorkoutType = await res.json();
+    const { name,image,muscleGroups,equipment,difficulty,duration,caloriesBurned,sets,reps,rating,description,instructions } = workout;
 
     
     return (

@@ -5,7 +5,7 @@ import Image from 'next/image';
 const Nav = () => {
     const links = <>
         <li><Link href="/my-plan" className='text-base-content'>Workouts</Link></li>                    
-        <li><Link href="/myplan" className='text-base-content'>My Plan</Link></li>
+        <li><Link href="/my-plan" className='text-base-content'>My Plan</Link></li>
     </> 
     return (
         <div className="container mx-auto navbar bg-base-200 shadow-sm">
@@ -33,8 +33,12 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <span className="btn">Plan 0</span>
-                <span className="btn">Saved 0</span>
+                <Link href="/my-plan">                
+                    <span className="btn">Plan 0</span>
+                </Link>
+                <Link href="/my-plan">
+                    <span className="btn">Saved 0</span>
+                </Link>
             </div>
         </div>
     );

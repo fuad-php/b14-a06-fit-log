@@ -11,7 +11,7 @@ const Workouts = async () => {
     const workoutData: IWorkoutType[] = await res.json();
 
     return (
-        <section className="container mx-auto bg-base-200 px-4 py-8">
+        <section id="library" className="container mx-auto bg-base-200 px-4 py-8">
             <h2 className="text-2xl font-bold uppercase text-white">
                 The Library
             </h2>
