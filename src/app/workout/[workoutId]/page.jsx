@@ -19,7 +19,7 @@ const WorkoutDetailPage = async ({params}) => {
                     alt={name} 
                     height={700}
                     width={700}
-                    className='w-full  rounded-2xl'
+                    className='w-full object-cover rounded-2xl'
                     />
                 </figure>
                 <div className="flex flex-col gap-6">
@@ -72,7 +72,7 @@ const WorkoutDetailPage = async ({params}) => {
                         ))}
                         </ol>
                     </div>
-                    <div className="card-actions justify-start flex gap-4">
+                    <div className="justify-start flex gap-4">
                     <button className="btn py-6 px-6 rounded bg-[#CCFF00] text-base-100"><LuNotebookPen /> {"Add to today's plan"}</button>
                     <button className="btn py-6 px-6 text-base-content border-base-content"> <TbBadge /> Save for later</button>
                     </div>

@@ -4,8 +4,8 @@ import Image from 'next/image';
 
 const Nav = () => {
     const links = <>
-        <li><Link href="" className='text-[#CCFF00]'>Workouts</Link></li>                    
-        <li><Link href="">My Plan</Link></li>
+        <li><Link href="/my-plan" className='text-base-content'>Workouts</Link></li>                    
+        <li><Link href="/myplan" className='text-base-content'>My Plan</Link></li>
     </> 
     return (
         <div className="container mx-auto navbar bg-base-200 shadow-sm">
@@ -23,7 +23,7 @@ const Nav = () => {
                 <div className='px-4'>
                     <Link className='flex gap-4 items-center' href={"/"}>                    
                         <Image src={Logo} height={30} width={30} alt="Logo" /> 
-                        <span className='font-bold text-2xl text-white uppercase'>FitLog</span> 
+                        <span className='font-bold text-2xl text-base-content uppercase'>FitLog</span> 
                     </Link>
                 </div>
             </div>
@@ -33,7 +33,8 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <span className="btn">Plan 0</span>
+                <span className="btn">Saved 0</span>
             </div>
         </div>
     );
