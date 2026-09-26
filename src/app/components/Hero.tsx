@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Hero = () => {
     return (      
-        <section className='container mx-auto px-8 py-6 bg-black'>
+        <section className='container mx-auto px-8 py-6 bg-base-100'>
             <div className='grid grid-cols-2 gap-4 justify-between items-center'>
                 <div className='flex flex-col justify-center gap-4'>
                     <span className='text-[#CCFF00] uppercase font-bold text-xl'>Workout Library</span>
