@@ -6,6 +6,7 @@ import { MdOutlineStarBorder } from "react-icons/md";
 import { IWorkoutType } from '../types/WorkoutType';
 import Link from 'next/link';
 import { ImCross } from 'react-icons/im';
+import { toast } from 'react-toastify';
 interface ISavedWorkoutProps {
     saveWorkout : IWorkoutType[];
     setSaveWorkout : Dispatch<SetStateAction<IWorkoutType[]>>
@@ -15,7 +16,8 @@ const SavedForLater = ({saveWorkout,setSaveWorkout}: ISavedWorkoutProps) => {
     const handleRemoveSavedWorkout = (id: number) => {
         setSaveWorkout((prev) => {
           return  prev.filter((workout) => workout.id !== id)
-        })
+        });
+        toast.error(`Item removed from list !`)
     }
     return (
         <div>

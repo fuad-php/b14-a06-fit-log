@@ -58,7 +58,7 @@ const Nav = () => {
                 <Link href="/my-plan">
                     <div className="btn flex gap-2">
                         Plan
-                        <span className='badge badge-accent badge-sm'>
+                        <span className='badge badge-accent badge-sm border-base-200'>
                             {todayPlan.length}
                         </span>
                     </div>
@@ -67,7 +67,7 @@ const Nav = () => {
                 <Link href="/my-plan">
                     <div className="btn flex gap-2">
                         Saved
-                        <span>{saveWorkout.length}</span>
+                        <span className='badge badge-sm border-base-200'>{saveWorkout.length}</span>
                     </div>
                 </Link>
             </div>

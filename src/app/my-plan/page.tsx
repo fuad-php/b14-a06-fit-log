@@ -63,12 +63,12 @@ const MyPlanPage = () => {
 
             <div className="gap-2 sm:flex-row sm:items-end sm:justify-between">
                 <div className="tabs tabs-lift">
-                    <input type="radio" name="my_tabs" className={`${activeTab === "today" ? "text-base-content border-base-content bg-base-300 " : "text-base-content/60"} py-3 my-2 tab `} aria-label="Today's Plan" defaultChecked onChange={() => setActiveTab("today")} />
+                    <input type="radio" name="my_tabs" className={`${activeTab === "today" ? "text-accent border-base-content bg-base-300 " : "text-base-content/60"} py-3 my-2 tab `} aria-label="Today's Plan" defaultChecked onChange={() => setActiveTab("today")} />
                     <div className="tab-content border-base-300 bg-base-100 p-4 sm:p-6">
                         <TodayPlannedWorkout todayPlan={todayPlan} setTodayPlan={setTodayPlan} />
                     </div>
 
-                    <input type="radio" name="my_tabs" className={`${activeTab === "saved" ? "text-base-content border-base-content bg-base-300 " : "text-base-content/60"} p-3 my-2 tab `} aria-label="Saved" onChange={() => setActiveTab("saved")} />
+                    <input type="radio" name="my_tabs" className={`${activeTab === "saved" ? "text-accent border-base-content bg-base-300 " : "text-base-content/60"} p-3 my-2 tab `} aria-label="Saved" onChange={() => setActiveTab("saved")} />
 
                     <div className="tab-content border-base-300 w-full bg-base-100 p-4 sm:p-6">
                         <SavedForLater saveWorkout={saveWorkout} setSaveWorkout={setSaveWorkout} />

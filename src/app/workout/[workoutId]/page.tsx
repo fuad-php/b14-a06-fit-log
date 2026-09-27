@@ -15,8 +15,7 @@ const WorkoutDetailPage = async ({
     const { workoutId } = await params;
 
     const res = await fetch(
-        // `https://api.abcz.workers.dev/api/fitlog/${parseInt(workoutId)}`
-        `https://api.api-store.workers.dev/api/fitlog/${parseInt(workoutId)}`
+        `https://api.abcz.workers.dev/api/fitlog/${parseInt(workoutId)}`
     );
 
     if (!res.ok) {
