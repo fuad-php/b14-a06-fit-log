@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
 import { LuClock3 } from "react-icons/lu";
 import { FaFire } from "react-icons/fa";
 import { MdOutlineStarBorder } from "react-icons/md";
 import { IWorkoutType } from '../types/WorkoutType';
-
+import Link from 'next/link';
 interface ISavedWorkoutProps {
     saveWorkout : IWorkoutType[];
+    setSaveWorkout : Dispatch<SetStateAction<IWorkoutType[]>>
 }
 
-const SavedForLater = ({saveWorkout}: ISavedWorkoutProps) => {
+const SavedForLater = ({saveWorkout,setSaveWorkout}: ISavedWorkoutProps) => {
+    const handleRemoveSavedWorkout = (id: number) => {
+        setSaveWorkout((prev) => {
+          return  prev.filter((workout) => workout.id !== id)
+        })
+    }
     return (
         <div>
             {
@@ -42,7 +48,9 @@ const SavedForLater = ({saveWorkout}: ISavedWorkoutProps) => {
                                     </div>
                                 </div>
                                 <div className='flex gap-4 items-center'>
-                                    <button className='btn rounded text-base-content'>View details</button>                                    
+                                    <Link href = {`/workout/${workout.id}`}>                                    
+                                        <button className='btn rounded text-base-content'>View details</button>                                    
+                                    </Link>
                                 </div>
                             </div>
                         )

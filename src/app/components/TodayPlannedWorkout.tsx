@@ -1,15 +1,23 @@
-import React from 'react';
+import Link from 'next/link';
 import { IWorkoutType } from '../types/WorkoutType';
 import Image from 'next/image';
 import { LuClock3 } from "react-icons/lu";
 import { FaFire } from "react-icons/fa";
 import { MdOutlineStarBorder } from "react-icons/md";
+import { Dispatch, SetStateAction } from 'react';
 
 interface ITodayPlannedWorkoutProps {
     todayPlan : IWorkoutType[];
+    setTodayPlan: Dispatch<SetStateAction<IWorkoutType[]>>
 }
 
-const TodayPlannedWorkout = ({todayPlan} : ITodayPlannedWorkoutProps) => {
+const TodayPlannedWorkout = ({todayPlan,setTodayPlan} : ITodayPlannedWorkoutProps) => {
+    const handleMarkDone = (id : number) => {
+        setTodayPlan((prev) => {
+           return prev.filter((workout) => workout.id !== id)
+        });
+
+    }
     return (
         <div>
             {
@@ -41,8 +49,10 @@ const TodayPlannedWorkout = ({todayPlan} : ITodayPlannedWorkoutProps) => {
                                     </div>
                                 </div>
                                 <div className='flex gap-4 items-center'>
-                                    <button className='btn rounded text-base-content'>View details</button>
-                                    <button className='btn rounded text-base-100 bg-base-content'>Mark as done</button>
+                                    <Link href={`/workout/${workout.id}`}>                                    
+                                        <button className='btn rounded text-base-content'>View details</button>
+                                    </Link>
+                                    <button className='btn rounded text-base-100 bg-base-content' onClick={() => handleMarkDone(workout.id)}>Mark as done</button>
                                 </div>
                             </div>
                         )

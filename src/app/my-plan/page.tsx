@@ -6,7 +6,9 @@ import TodayPlannedWorkout from "../components/TodayPlannedWorkout";
 import SavedForLater from "../components/SavedForLater";
 
 const MyPlanPage = () => {
-    const { todayPlan, saveWorkout } = useContext(WorkoutContext);
+    const { todayPlan, setTodayPlan, saveWorkout, setSaveWorkout } = useContext(WorkoutContext);
+        
+    //  todayPlan.map()
 
     return (
         <div className="container mx-auto px-4 py-6">
@@ -55,7 +57,7 @@ const MyPlanPage = () => {
                     />
 
                     <div className="tab-content border-base-300 bg-base-100 p-4 sm:p-6">
-                        <TodayPlannedWorkout todayPlan={todayPlan} />
+                        <TodayPlannedWorkout todayPlan={todayPlan} setTodayPlan={setTodayPlan} />
                     </div>
 
                     {/* Saved */}
@@ -67,7 +69,7 @@ const MyPlanPage = () => {
                     />
 
                     <div className="tab-content border-base-300 bg-base-100 p-4 sm:p-6">
-                        <SavedForLater saveWorkout={saveWorkout} />
+                        <SavedForLater saveWorkout={saveWorkout} setSaveWorkout={setSaveWorkout} />
                     </div>
                 </div>
 
