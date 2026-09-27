@@ -2,7 +2,8 @@ import WorkoutCard from "./WorkoutCard";
 import { IWorkoutType } from "../types/WorkoutType";
 
 const Workouts = async () => {
-    const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
+    // const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
+    const res = await fetch("https://api.api-store.workers.dev/api/fitlog");
 
     if (!res.ok) {
         throw new Error("Failed to fetch workouts");
@@ -20,7 +21,7 @@ const Workouts = async () => {
                 Twelve lifts covering every major muscle group.
             </p>
 
-            <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-6">
                 {workoutData.map((workout:IWorkoutType) => (
                     <WorkoutCard
                         key={workout.id}

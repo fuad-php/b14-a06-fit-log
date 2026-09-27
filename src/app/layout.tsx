@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import WorkoutProvider from "./context/WorkoutContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,14 +26,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} data-theme="dark" 
     >
-      <body className="min-h-full flex flex-col ">
-        <div className="bg-base-200">
-          <Nav/>
-          <div className="my-4">
-            {children}
-          </div>
-          <Footer/>
-        </div>
+      <body className="min-h-full flex flex-col bg-base-100 font-sans">
+        <header className="bg-base-200 ">
+          <WorkoutProvider> 
+              <Nav/>
+              <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-8">
+                {children}
+              </main>
+              <Footer/>
+            </WorkoutProvider>
+        </header>
       </body>
     </html>
   );

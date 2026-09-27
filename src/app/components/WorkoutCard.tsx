@@ -11,49 +11,79 @@ interface WorkoutProps {
 
 const WorkoutCard = ({ workout }: WorkoutProps) => {
     return (
-        <article className="group overflow-hidden rounded-2xl border border-base-300 bg-base-100 shadow-sm hover:shadow-xl">
-            <Link href={`/workout/${workout.id}`}>
-            
-                <figure className="relative overflow-hidden">
+        <article className="group h-full overflow-hidden rounded-2xl border border-base-300 bg-base-100 shadow-sm">
+            <Link
+                href={`/workout/${workout.id}`}
+                className="flex h-full flex-col"
+            >
+
+                <figure className="relative aspect-[16/10] w-full overflow-hidden bg-base-200">
                     <Image
                         src={workout.image}
                         alt={workout.name}
-                        width={400}
-                        height={350}
-                        className="h-60 w-full object-cover"
-                    />                
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
+                    />                    
                 </figure>
 
-                <div className="card-body p-5">
+
+                <div className="flex flex-1 flex-col p-4 sm:p-5">
                     <div className="flex flex-wrap gap-2">
                         {workout.muscleGroups.map((muscleGroup) => (
-                            <span key={muscleGroup} className="badge bg-[#CCFF00] badge-outline">
+                            <span
+                                key={muscleGroup}
+                                className="badge border-none bg-[#CCFF00] px-3 py-3 text-xs font-semibold text-black"
+                            >
                                 {muscleGroup}
                             </span>
                         ))}
                     </div>
 
-                    <h2 className="mt-2 line-clamp-1 text-xl font-bold text-base-content">{workout.name}</h2>
-                    <p className="line-clamp-2 text-sm leading-6 text-base-content/70">{workout.equipment}</p>
-                    <div className="mt-3 grid grid-cols-3 gap-2 rounded-xl bg-base-200 p-3 text-center">
-                        <div>
-                            <p className="flex gap-2 items-center font-semibold text-base-content">
-                            <LuClock3 />  {workout.duration} min
-                            </p>
+                    <h2 className="mt-3 line-clamp-1 text-lg font-bold text-base-content sm:text-xl">
+                        {workout.name}
+                    </h2>
+
+                    <p className="mt-1 line-clamp-2 text-sm leading-6 text-base-content/60">
+                        {workout.equipment}
+                    </p>
+
+                    <div className="mt-4 grid grid-cols-3 divide-x divide-base-300 rounded-xl bg-base-200 p-3">
+                        <div className="flex flex-col items-center gap-1 px-1 text-center">
+                            <LuClock3 className="text-base-content/60" />
+                            <span className="text-xs text-base-content/60">
+                                Duration
+                            </span>
+
+                            <span className="text-xs font-bold text-base-content sm:text-sm">
+                                {workout.duration} min
+                            </span>
                         </div>
 
-                        <div>
-                            <p className="flex gap-2 items-center font-semibold text-base-content">
-                            <FaFire />  {workout.caloriesBurned}
-                            </p>
+                        <div className="flex flex-col items-center gap-1 px-1 text-center">
+                            <FaFire className="text-base-content/60" />
+
+                            <span className="text-xs text-base-content/60">
+                                Calories
+                            </span>
+
+                            <span className="text-xs font-bold text-base-content sm:text-sm">
+                                {workout.caloriesBurned}
+                            </span>
                         </div>
 
-                        <div>
-                            <p className="flex gap-2 items-center font-semibold text-base-content">
-                            <MdOutlineStarBorder />  {workout.rating}
-                            </p>
+                        <div className="flex flex-col items-center gap-1 px-1 text-center">
+                            <MdOutlineStarBorder className="text-base-content/60" />
+
+                            <span className="text-xs text-base-content/60">
+                                Rating
+                            </span>
+
+                            <span className="text-xs font-bold text-base-content sm:text-sm">
+                                {workout.rating}
+                            </span>
                         </div>
-                    </div>                
+                    </div>                    
                 </div>
             </Link>
         </article>

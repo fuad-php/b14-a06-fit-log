@@ -4,11 +4,11 @@ import Image from 'next/image';
 
 const Nav = () => {
     const links = <>
-        <li><Link href="/my-plan" className='text-base-content'>Workouts</Link></li>                    
+        <li><Link href="/" className='text-accent'>Workouts</Link></li>                    
         <li><Link href="/my-plan" className='text-base-content'>My Plan</Link></li>
     </> 
     return (
-        <div className="container mx-auto navbar bg-base-200 shadow-sm">
+        <nav className="navbar mx-auto max-w-7xl px-4">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -40,7 +40,7 @@ const Nav = () => {
                     <span className="btn">Saved 0</span>
                 </Link>
             </div>
-        </div>
+        </nav>
     );
 };
 
