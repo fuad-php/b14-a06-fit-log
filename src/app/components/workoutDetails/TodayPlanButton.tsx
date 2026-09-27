@@ -3,6 +3,7 @@ import { WorkoutContext } from '@/app/context/WorkoutContext';
 import { IWorkoutType } from '@/app/types/WorkoutType';
 import React, { useContext } from 'react';
 import { LuNotebookPen } from 'react-icons/lu';
+import { toast } from 'react-toastify';
 
 const TodayPlanButton = ({workout}:{workout:IWorkoutType}) => {
 
@@ -10,8 +11,13 @@ const TodayPlanButton = ({workout}:{workout:IWorkoutType}) => {
     const isAlreadyAdded = todayPlan.some( (item) => item.id === workout.id );
 
     const handleTodayPlan = () => {
-        if (isAlreadyAdded) return;
+        if (isAlreadyAdded){
+            toast.warn(`This item already added!`);
+            return;
+        } 
+            
         setTodayPlan((prev) => [...prev, workout])
+        toast.success(`Item added Successfully!`);
 
     }
     return (

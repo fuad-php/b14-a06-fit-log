@@ -5,6 +5,7 @@ import { FaFire } from "react-icons/fa";
 import { MdOutlineStarBorder } from "react-icons/md";
 import { IWorkoutType } from '../types/WorkoutType';
 import Link from 'next/link';
+import { ImCross } from 'react-icons/im';
 interface ISavedWorkoutProps {
     saveWorkout : IWorkoutType[];
     setSaveWorkout : Dispatch<SetStateAction<IWorkoutType[]>>
@@ -22,7 +23,7 @@ const SavedForLater = ({saveWorkout,setSaveWorkout}: ISavedWorkoutProps) => {
                 saveWorkout.length > 0 ? (
                     saveWorkout.map((workout) => {
                         return (
-                            <div key={workout.id} className='flex gap-2 justify-between'>                                        
+                            <div key={workout.id} className='flex gap-2 justify-between border-base-300 my-2'>                                        
                                 <div className='flex gap-4'>
                                     <Image 
                                     src={workout.image}
@@ -31,33 +32,38 @@ const SavedForLater = ({saveWorkout,setSaveWorkout}: ISavedWorkoutProps) => {
                                     alt="image"
 
                                     />
-                                    <div className='flex flex-col justify-center'>
+                                    <div className='flex flex-col justify-center gap-4'>
                                         <h3 className='text-xs font-bold text-base-content uppercase sm:text-sm lg:text-3xl'>{workout.name}</h3>
                                         <p className="text-base-content/60">{workout.equipment}</p>
-                                        <div className='flex gap-2'>
-                                            <span className="text-xs font-bold text-base-content sm:text-sm">
-                                            <LuClock3 className="text-base-content/60" /> {workout.duration} min
+                                        <div className='flex gap-4'>
+                                            <span className="flex gap-2 items-center text-xs font-bold text-accent sm:text-sm">
+                                            <LuClock3 className="text-accent/60" /> {workout.duration} min
                                             </span>
-                                            <span className="text-xs font-bold text-base-content sm:text-sm">
-                                                <FaFire className="text-base-content/60" />    {workout.caloriesBurned}
+                                            <span className="flex gap-2 items-center text-xs font-bold text-accent sm:text-sm">
+                                                <FaFire className="text-accent/60" />    {workout.caloriesBurned}
                                             </span>
-                                            <span className='text-xs font-bold text-base-content sm:text-sm'>
-                                                <MdOutlineStarBorder className="text-base-content/60" /> {workout.rating}
+                                            <span className='flex gap-2  items-center text-xs font-bold text-accent sm:text-sm'>
+                                                <MdOutlineStarBorder className="text-accent/60" /> {workout.rating}
                                             </span>
                                         </div>
                                     </div>
                                 </div>
                                 <div className='flex gap-4 items-center'>
                                     <Link href = {`/workout/${workout.id}`}>                                    
-                                        <button className='btn rounded text-base-content'>View details</button>                                    
+                                        <button className='btn rounded-4xl border-base-content/60 text-base-content'>View details</button>                                    
                                     </Link>
+                                    <button className='mx-4 text-base-content cursor-pointer' onClick={() => handleRemoveSavedWorkout(workout.id)}> <ImCross /> </button>
                                 </div>
                             </div>
                         )
                     })
                 ): (
-                    <div>
-                        <h3>No saved workout</h3>
+                    <div className='text-center'>
+                        <h3 className='uppercase text-3xl text-base-content my-10'>Nothing Here Yet</h3>
+                        <p className='text-base-content/60 my-4'>Browse the library and add a lift to get today moving.</p>
+                        <Link href={`/`}>
+                            <button className = "font-bold rounded-4xl text-base-100 bg-accent px-4 py-3">Go to workouts</button>
+                        </Link>
                     </div>
                 ) 
             }
